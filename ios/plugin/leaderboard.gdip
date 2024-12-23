@@ -1,0 +1,17 @@
+[config]
+name="Leaderboard"
+binary="leaderboard.a"
+
+initialization="register_leaderboard_types"
+deinitialization="unregister_leaderboard_types"
+
+[dependencies]
+linked=[]
+embedded=[]
+system=["GameKit.framework"]
+
+capabilities=[]
+
+files=[]
+
+[plist]
