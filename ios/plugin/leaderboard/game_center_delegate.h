@@ -29,6 +29,13 @@
 /*************************************************************************/
 
 #import <GameKit/GameKit.h>
+#ifdef VERSION_4_0
+#include "core/object/object.h"
+#endif
+
+#ifdef VERSION_3_X
+#include "core/object.h"
+#endif
 
 @interface GodotGameCenterDelegate : NSObject <GKGameCenterControllerDelegate>
 

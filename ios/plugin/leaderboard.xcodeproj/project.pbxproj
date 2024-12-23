@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD70A0EB2D194F63000AE644 /* game_center_delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD70A0EA2D194F63000AE644 /* game_center_delegate.m */; };
 		BD8AECFD2A5744C000222717 /* leaderboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD8AECFC2A5744C000222717 /* leaderboard.mm */; };
 		BD8AECFE2A5744C000222717 /* leaderboard.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD8AECFB2A5744C000222717 /* leaderboard.h */; };
+		BDA42F0B2D19929500223E77 /* game_center_delegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDA42F0A2D19929500223E77 /* game_center_delegate.mm */; };
 		BDF397C62A5BE8D50073C2AD /* leaderboard_module.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDF397C52A5BE8D50073C2AD /* leaderboard_module.mm */; };
 /* End PBXBuildFile section */
 
@@ -27,11 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BD70A0EA2D194F63000AE644 /* game_center_delegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = game_center_delegate.m; sourceTree = "<group>"; };
 		BD70A0EC2D194F90000AE644 /* game_center_delegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game_center_delegate.h; sourceTree = "<group>"; };
 		BD8AECF82A5744C000222717 /* libleaderboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libleaderboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8AECFB2A5744C000222717 /* leaderboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = leaderboard.h; sourceTree = "<group>"; };
 		BD8AECFC2A5744C000222717 /* leaderboard.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = leaderboard.mm; sourceTree = "<group>"; };
+		BDA42F0A2D19929500223E77 /* game_center_delegate.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = game_center_delegate.mm; sourceTree = "<group>"; };
 		BDF397C22A5B4A5A0073C2AD /* leaderboard_module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = leaderboard_module.h; sourceTree = "<group>"; };
 		BDF397C52A5BE8D50073C2AD /* leaderboard_module.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = leaderboard_module.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,11 +66,11 @@
 		BD8AECFA2A5744C000222717 /* leaderboard */ = {
 			isa = PBXGroup;
 			children = (
+				BDA42F0A2D19929500223E77 /* game_center_delegate.mm */,
 				BDF397C52A5BE8D50073C2AD /* leaderboard_module.mm */,
 				BD8AECFB2A5744C000222717 /* leaderboard.h */,
 				BD8AECFC2A5744C000222717 /* leaderboard.mm */,
 				BDF397C22A5B4A5A0073C2AD /* leaderboard_module.h */,
-				BD70A0EA2D194F63000AE644 /* game_center_delegate.m */,
 				BD70A0EC2D194F90000AE644 /* game_center_delegate.h */,
 			);
 			path = leaderboard;
@@ -103,7 +103,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					BD8AECF72A5744C000222717 = {
 						CreatedOnToolsVersion = 14.2;
@@ -133,8 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD70A0EB2D194F63000AE644 /* game_center_delegate.m in Sources */,
 				BD8AECFD2A5744C000222717 /* leaderboard.mm in Sources */,
+				BDA42F0B2D19929500223E77 /* game_center_delegate.mm in Sources */,
 				BDF397C62A5BE8D50073C2AD /* leaderboard_module.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +178,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -236,6 +237,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

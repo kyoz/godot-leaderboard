@@ -27,6 +27,11 @@
 /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /*************************************************************************/
+#ifdef VERSION_4_0
+#include "core/config/engine.h"
+#else
+#include "core/engine.h"
+#endif
 
 #import "game_center_delegate.h"
 
@@ -36,8 +41,8 @@
 
 - (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
     //[gameCenterViewController dismissViewControllerAnimated:YES completion:^{GameCenter::get_singleton()->game_center_closed();}];//version for signaling when overlay is completely gone
-    if (GameCenter::get_singleton()) {
-        GameCenter::get_singleton()->game_center_closed();
+    if (Leaderboard::get_singleton()) {
+        Leaderboard::get_singleton()->game_center_closed();
     }
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }

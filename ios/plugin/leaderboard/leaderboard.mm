@@ -100,8 +100,6 @@ void Leaderboard::signIn() {
         if (controller) {
             [root_controller presentViewController:controller animated:YES completion:nil];
         } else {
-            Dictionary ret;
-            ret["type"] = "authentication";
             if (player.isAuthenticated) {
                 emit_signal("on_authenticated", true);
             } else {
@@ -142,8 +140,6 @@ void Leaderboard::submitHighScore(const String &leaderboard_id, const int &score
 
     [GKScore reportScores:@[ reporter ]
         withCompletionHandler:^(NSError *error) {
-            Dictionary ret;
-            ret["type"] = "post_score";
             if (error == nil) {
                 emit_signal("on_leaderboard_event", "EVENT_SUBMIT_SCORE_OK");
             } else {
@@ -153,7 +149,7 @@ void Leaderboard::submitHighScore(const String &leaderboard_id, const int &score
 }
 
 
-void Leaderboard::show() {
+void Leaderboard::show(const String &leaderboard_id) {
     if (!NSProtocolFromString(@"GKGameCenterControllerDelegate")) {
         emit_signal("on_leaderboard_error", "ERROR_NO_CENTER_CONTROLLER");
         return;
@@ -169,6 +165,10 @@ void Leaderboard::show() {
         return;
     }
 
+    controller.leaderboardIdentifier = [NSString stringWithUTF8String:leaderboard_id.ascii().get_data()];
+    controller.leaderboardTimeScope = GKLeaderboardTimeScopeAllTime;
+
+    
     UIViewController *root_controller = [[UIApplication sharedApplication] delegate].window.rootViewController;
     
     if (!root_controller) {
@@ -180,4 +180,9 @@ void Leaderboard::show() {
     controller.viewState = view_state;
 
     [root_controller presentViewController:controller animated:YES completion:nil];
+}
+
+
+void Leaderboard::game_center_closed() {
+    
 }

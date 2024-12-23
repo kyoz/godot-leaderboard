@@ -5,8 +5,8 @@
 //  Created by Kyoz on 23/12/2024.
 //
 
-#ifndef RATING_H
-#define RATING_H
+#ifndef LEADERBOARD_H
+#define LEADERBOARD_H
 
 #ifdef VERSION_4_0
 #include "core/object/object.h"
@@ -27,7 +27,7 @@ public:
     void signIn();
     void fetchHighScore(const String &leaderboard_id);
     void submitHighScore(const String &leaderboard_id, const int &score);
-    void show();
+    void show(const String &leaderboard_id);
 
     
     void game_center_closed();

@@ -1,6 +1,5 @@
 //
 //  leaderboard_module.h
-//  leaderboard
 //
 //  Created by Kyoz on 23/12/2024.
 //
