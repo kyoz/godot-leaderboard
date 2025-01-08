@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./icon.png" alt="Godot Leaderboard" width=512>
+  <img src="./icon.png" alt="Godot Leaderboard" width=256>
   <br>
   Godot Leaderboard
   <br>
