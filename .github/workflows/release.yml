@@ -57,7 +57,7 @@ jobs:
           ./scripts/ios/release.sh
           ls -l .release/ios
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: plugins
           path: .release/ios/*.zip
