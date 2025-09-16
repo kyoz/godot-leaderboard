@@ -115,14 +115,18 @@ void Leaderboard::fetchHighScore(const String &leaderboard_id) {
     leaderboard.identifier = [[NSString alloc] initWithUTF8String:leaderboard_id.utf8().get_data()];
     leaderboard.playerScope = GKLeaderboardPlayerScopeGlobal;
     leaderboard.timeScope = GKLeaderboardTimeScopeAllTime;
-    leaderboard.range = NSMakeRange(1, 1);
-
-    [leaderboard loadScoresWithCompletionHandler:^(NSArray<GKScore *> * _Nullable scores, NSError * _Nullable error) {
-        if (!error && scores && scores.count > 0) {
-            GKScore *topScore = scores.firstObject;
-            emit_signal("on_high_score_fetched", topScore.value);
+    
+    // First, try to load the local player's entry by loading scores around their rank
+    [leaderboard loadScoresWithCompletionHandler:^(NSArray<GKScore *> *scores, NSError *error) {
+        if (!error) {
+            // Get the local player's score from the localPlayerScore property
+            if (leaderboard.localPlayerScore) {
+                emit_signal("on_high_score_fetched", leaderboard.localPlayerScore.value);
+            } else {
+                // Local player has no score on this leaderboard
+                emit_signal("on_leaderboard_error", "PLAYER_NO_SCORE");
+            }
         } else {
-            // Handle error or no scores case
             emit_signal("on_leaderboard_error", "ERROR_FETCH_HIGHSCORE_FAILED");
         }
     }];
